@@ -10,7 +10,7 @@ class MainScaffold extends StatelessWidget {
     return Scaffold(
       body: HomeRoute(),
       backgroundColor: Colors.transparent,
-      // TODO: make bottom bar transparent
+      extendBody: true,
       bottomNavigationBar: CurvedNavigationBar(
         color: Color.fromRGBO(18, 18, 18, 1),
         height: 60,
