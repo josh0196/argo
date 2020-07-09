@@ -1,3 +1,4 @@
+import 'package:argo/frontend/shared/widgets/main_scaffold.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,7 +10,14 @@ class ArgoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ARgo',
-      home: Scaffold(),
+      debugShowCheckedModeBanner: false,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+        primaryColor: Color.fromRGBO(18, 18, 18, 1),
+        textTheme: Typography.whiteMountainView,
+        primaryIconTheme: IconThemeData(color: Colors.black),
+      ),
+      home: MainScaffold(),
     );
   }
 }
