@@ -9,7 +9,6 @@ class NavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<NavigationState>(
       builder: (_, navigationState, __) {
-        print("hello! im am listening!");
         return CurvedNavigationBar(
           index: navigationState.currentRoute.index,
           color: Color.fromRGBO(18, 18, 18, 1),
