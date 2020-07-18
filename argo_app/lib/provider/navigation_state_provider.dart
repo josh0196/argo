@@ -1,4 +1,4 @@
-import 'package:argo/frontend/routes/route_names.dart';
+import 'package:argo/frontend/shared/util/route_names.dart';
 import 'package:flutter/material.dart';
 
 class NavigationState with ChangeNotifier {
@@ -10,7 +10,7 @@ class NavigationState with ChangeNotifier {
 
   set currentRoute(RouteNames route) {
     if (route != _currentRoute) {
-      _oldRoute = _currentRoute;
+      if (_currentRoute != RouteNames.add) _oldRoute = _currentRoute;
       _currentRoute = route;
       notifyListeners();
       print('Navigated to ' + currentRoute.toString());
@@ -20,5 +20,11 @@ class NavigationState with ChangeNotifier {
       _currentRoute = _oldRoute;
       notifyListeners();
     }
+  }
+
+  void pop() {
+    print('pop');
+    _currentRoute = _oldRoute;
+    notifyListeners();
   }
 }

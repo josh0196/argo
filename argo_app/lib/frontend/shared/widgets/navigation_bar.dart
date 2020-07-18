@@ -1,4 +1,4 @@
-import 'package:argo/frontend/routes/route_names.dart';
+import 'package:argo/frontend/shared/util/route_names.dart';
 import 'package:argo/provider/navigation_state_provider.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -9,9 +9,10 @@ class NavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<NavigationState>(
       builder: (_, navigationState, __) {
-        print("hello! im am listening!");
         return CurvedNavigationBar(
-          index: navigationState.currentRoute.index,
+          index: navigationState.currentRoute.index > 4
+              ? 2
+              : navigationState.currentRoute.index,
           color: Color.fromRGBO(18, 18, 18, 1),
           height: 60,
           animationDuration: Duration(milliseconds: 130),
@@ -50,7 +51,12 @@ class NavigationBar extends StatelessWidget {
             ),
           ],
           onTap: (int index) {
-            navigationState.currentRoute = RouteNames.values[index];
+            if (navigationState.currentRoute == RouteNames.create ||
+                navigationState.currentRoute == RouteNames.load ||
+                navigationState.currentRoute == RouteNames.modify)
+              navigationState.pop();
+            else
+              navigationState.currentRoute = RouteNames.values[index];
           },
         );
       },

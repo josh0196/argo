@@ -10,8 +10,13 @@ class HomeRoute extends StatelessWidget {
     return Scaffold(
       appBar: HomeAppBar(),
       body: Container(
-          color: Colors.black,
-          child: ListView.builder(itemBuilder: (_, __) => Post())),
+        color: Colors.black,
+        child: ListView.builder(
+          itemBuilder: (_, __) => Post(),
+        ),
+      ),
     );
   }
 }
+
+//
